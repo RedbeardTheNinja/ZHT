@@ -20,27 +20,29 @@ int main(int argc, const char* argv[]) {
         return -1;
     }
 
-    string *pointerToString;
+    string pointerToString;
+    string key("key");
 
-    int ret = client.insert("key", "Hello World!");
+    int ret = client.insert(key, "Hello World!");
     if (ret != 0) {
-        cout << "Error Inserting: " << ret << endl;
+        cout << "Error Inserting: " << strerror(ret) << endl;
         return -1;
     } else {
         cout << "Inserted value" << endl;
     }
 
-    ret = client.get("key", pointerToString);
+
+    ret = client.get(key, pointerToString);
     if (ret != 0) {
-        cout << "Error On Lookup: " << ret << endl;
+        cout << "Error On Lookup: " << strerror(ret) << endl;
         return -1;
     } else {
-        cout << "Found value '" << *pointerToString << "'\n";
+        cout << "Found value '" << pointerToString << "'\n";
     }
 
-    ret = client.remove();
+    ret = client.remove(key);
     if (ret != 0) {
-        cout << "Error On Remove: " << ret << endl;
+        cout << "Error On Remove: " << strerror(ret) << endl;
     } else {
         cout << "Removed value" << endl;
     }

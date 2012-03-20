@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 //	string str = "123456789asdfghjklzxcvbnnm,.";
 	HostEntity destination;
 	destination.host = "localhost";
-	destination.port = 50000;
+	destination.port = 5555;
 	int current_sock = -1;
 
 /*	Package package, package_ret;
